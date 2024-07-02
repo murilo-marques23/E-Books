@@ -1,23 +1,24 @@
-import { createContext, useState } from "react";
-import { iAuthContext } from "@/types/context";
-import { useRouter } from "next/navigation";
-import { iSingUp, iSingin, iUser } from "@/types/userAccessValidatons";
+// @contexts/AuthContext.tsx
 
-const AuthContext = createContext<iAuthContext>({} as iAuthContext);
+"use client"
+import { createContext, useEffect, useState, ReactNode } from "react";
+import { iAuthContext, iProduto } from "@/types/context";
+import data from "@/database/products.json"
 
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const router = useRouter();
-    const [ User, setUser ] = useState<iUser>({} as iUser);
+export const AuthContext = createContext<iAuthContext>({} as iAuthContext);
 
-    const singIn = (value: iSingin) => {
-        return new Promise((resolve) => {
-            resolve(true);
+const AuthProvider = ({ children }: { children: ReactNode }) => {
+    const [Product, setProduct] = useState<iProduto[]>([]);
 
-            localStorage.setItem("IsLogged", "true");
+    useEffect(() => {
+        setProduct(data);
+    }, []); 
 
-            const response = login(values);
-        })
+    return (
+        <AuthContext.Provider value={{ Product }}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
 
-    }
-
-}
+export default AuthProvider;
