@@ -22,7 +22,7 @@
 },{
     "id": 210,
     "nome": "Harry Potter e a Camera Secreta",
-    "img": "Harry Potter 2.png",
+    "img": "Hary-Potter 2.png",
     "autor": "J.K Rowling",
     "preço": 70.55,
     "score": 3
@@ -49,7 +49,7 @@
     "score": 4.6
 },{
     "id": 813,
-    "nome": "Box Dual Jurrasci Park-Edição Capa Dura",
+    "nome": "Box Dual Jurassci Park-Edição Capa Dura",
     "img":"Box-Jurrasic-Park.png",
     "autor": "Michael Crichton",
     "preço": 158.91,
@@ -92,7 +92,7 @@
 },{
     "id": 286,
     "nome": "Biblioteca da Meia Noite",
-    "img": "Bibiioteca-a-meia-noite.png",
+    "img": "Biblioteca-a-meia-noite.png",
     "autor": "Matt Haig",
     "preço": 46.70,
     "score": 4.7
@@ -105,7 +105,7 @@
     "score": 4.7
 },{
     "id": 721,
-    "nome": "it: A coisa",
+    "nome": "It: A coisa",
     "img": "It-a-coisa.png",
     "autor": "Stephen King",
     "preço": 84.58,
@@ -140,7 +140,7 @@
     "score": 4.7
 },{
     "id": 308,
-    "nome": "E assim que Acaba 1",
+    "nome": "E assim que Acaba ",
     "img": "e-assim-que-acaba.png",
     "autor": "Collen Hoover",
     "preço": 43.20,
@@ -195,28 +195,28 @@
     "preço": 69.00,
     "score": 4.8
 },{
-    "Id": 632,
+    "id": 632,
     "nome": "A Furia Dos Reis Volume 2",
-    "img": "cronica-do-gelo-e-fogo.jpg",
+    "img": "cronica-do-gelo-e-fogo-2.jpg",
     "autor": "George R. R Martin",
     "preço": 73.90,
     "score": 4.8
 },{
-    "Id": 656,
+    "id": 656,
     "nome": "A Tormenta De Espadas Volume 3",
     "img": "cronica-do-gelo-e-fogo-3.png",
     "autor": "George R. R Martin",
     "preço": 73.24,
     "score": 4.8
 },{
-    "Id": 954,
+    "id": 954,
     "nome": "O Festim Dos Corvos Volume 4",
     "img": "cronica-do-gelo-e-fogo-4.png",
     "autor": "George R. R Martin",
     "preço": 65.28,
     "score": 4.8
 },{
-    "Id": 145,
+    "id": 145,
     "nome": "A Dança Dos Dragões Volume 5",
     "img": "cronica-do-gelo-e-fogo-5.png",
     "autor": "George R. R Martin",

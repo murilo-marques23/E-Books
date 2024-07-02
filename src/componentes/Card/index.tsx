@@ -1,80 +1,112 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react"
+import { AuthContext } from "@/contexts/AuthContext";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react"
+import { useContext } from "react";
 import { FaRegStar } from "react-icons/fa";
 
 
-export interface iCardBooksProps {
-    id: number
-    nome: string
-    img: string
-    preco: number
-    nota: number
-}
 
-const Card: React.FC<iCardBooksProps> = ({
-    id,
-    nome,
-    img,
-    preco,
-    nota,
-}) => {
+
+const Card  = () => {
+    const { Product } = useContext(AuthContext);
     return(
+        <>
+        {Product.map((Product) => (
+
+<Box
+key={Product.id}
+boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px"
+h= "450px"
+w= "380px"
+mt= "3rem"
+borderRadius= "8px"
+ml="1rem"
+_hover={{
+    transform: "scale(1.02)",
+    boxShadow: "0px 7px 29px 0px rgba(100, 100, 111, 0.2)",
+}}
+
+>
+    <Flex 
+    flexDirection= "column"
+    
+    gap="1rem"
+    flexWrap= "wrap"
+    >
         <Box
-        boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px"
-        h= "340px"
-        w= "250px"
-        mt= "3rem"
-        borderRadius= "8px"
-        ml="1rem"
-        _hover={{
-            transform: "scale(1.02)",
-            boxShadow: "0px 7px 29px 0px rgba(100, 100, 111, 0.2)",
-        }}
-        
+        display="flex"
+        alignItems="center"
+        justifyContent="center" 
         >
-            <Flex flexDirection= "column"
-            alignItems="center"
-            justifyContent="center" 
-            gap="1rem"
-            flexWrap= "wrap"
-            >
-                <Box>
-                    <Image
-                    w="200px"
-                    h="200px"
-                    src= {img}
-                    alt="Livros"
-                    />
+            <Image
+            w="200px"
+            h="200px"
+            src= {Product.img}
+            alt="Livros"
+            marginTop="8px"
+            />
 
-                </Box>
-                
-                <Box>
-                <Text>
-                    {nome}
-                </Text>
-                </Box>
-                <Box>
-                    <Text>
-                        R$:{preco}
-                    </Text>
-                </Box>
-
-                <Box display= "flex"
-                gap= "10px" 
-                alignItems="center"
-                
-                >
-                    <Text display="flex" flexDirection="column">
-                        {nota}
-                    </Text>
-                    <Box color= "yellow" >
-                        <FaRegStar /> 
-                    </Box>
-                </Box>
-
-            </Flex>
- 
+        </Box>
+        
+        <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center" 
+        >
+        <Text 
+        fontSize="18px"
+        fontWeight="500"
+        >
+            {Product.nome}
+        </Text>
         </Box>
 
+        <Box
+        display="flex"
+        marginLeft="30px"
+        >
+            <Text>
+                {Product.autor}
+            </Text>
+        </Box>
+
+        <Box
+        display="flex"
+        marginLeft="30px"
+        >
+            <Text>
+                R$:{`${Product.preço.toFixed(2)}`.replace("." , ",")}
+            </Text>
+        </Box>
+
+        <Box display= "flex"
+        gap= "10px" 
+        marginLeft="40px" 
+        >
+            <Text display="flex" flexDirection="column">
+                {Product.score}
+            </Text>
+            <Box color= "yellow" >
+                <FaRegStar /> 
+            </Box>
+        </Box>
+
+        <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center" 
+        >
+            <Button variant='link'
+            color= "black"
+            >
+                Adicionar ao Carrinho
+            </Button>
+        </Box>
+
+    </Flex>
+
+</Box>
+        ))}
+        </>
     )
 }
 

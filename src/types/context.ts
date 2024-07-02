@@ -4,8 +4,14 @@ import { iSingin } from "./userAccessValidatons";
 
 
 export interface iAuthContext {
-    singIn: (values: iSingin) => void
-    user: iUser
-    isLogged: boolean;
-    logout: () => void;
+    Product: iProduto[]
+}
+
+export interface iProduto {
+    id: number,
+    nome: string,
+    img: string,
+    autor: string,
+    preço: number,
+    score: number,
 }

@@ -61,14 +61,15 @@ export default function Login () {
             </Box>
         <Box>
         <Button type="submit"
-        bg="blue.50"
+        variant='link'
         w="200px"
         h="50px"
         display="flex"
         justifyContent="center"
         alignItems="center"
-        fontWeight="500"
-        borderRadius="20px"
+        color="black"
+        fontWeight="600"
+        borderRadius="8px"
         >Confirme o seu cadastro</Button>
 
         </Box>
