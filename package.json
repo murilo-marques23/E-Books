@@ -13,6 +13,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@hookform/resolvers": "^3.6.0",
+    "axios": "^1.7.2",
     "framer-motion": "^11.2.10",
     "next": "14.2.4",
     "react": "^18",
@@ -20,6 +21,9 @@
     "react-hook-form": "^7.52.0",
     "react-icon": "^1.0.0",
     "react-icons": "^5.2.1",
+    "react-paginate": "^8.2.0",
+    "react-query": "^3.39.3",
+    "react-toastify": "^10.0.5",
     "styled-components": "^6.1.11",
     "yup": "^1.4.0"
   },

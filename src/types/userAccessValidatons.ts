@@ -13,6 +13,18 @@ export interface iSingUp {
 }
 
 export interface iUser{
-    nome: string;
+    name: string;
     email: string;
+}
+
+export interface iSinginData {
+    email: string;
+    password: string;
+}
+
+export interface iSingUpData {
+    name: string;
+    email: string;
+    password: string;
+
 }

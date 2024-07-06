@@ -2,17 +2,29 @@
 import * as S from "./header.styled"
 import { FaCartShopping } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import Link from "next/link";
 import { PiBooksBold } from "react-icons/pi";
+import { useAuth } from "@/contexts/AuthContext";
+import Link from "next/link";
+
+
 
 const Header = () => {
+    const { isLogged, user, logout } = useAuth();
     return(
         <S.Header>
             <S.HeaderTop>
                 <p>Seja Bem Vindo a E-books</p>
                 <div>
-                <Link href={"/login"}> Login </Link>
-                <Link href={"/register"}>Cadastro</Link>
+                {!isLogged ? (
+              <>
+                <Link href="/login">Login</Link>
+                <Link href="/cadastro">Cadastro</Link>
+              </>
+            ) : (
+              <>
+                <p>Olá, {user.name}</p>
+              </>
+            )}
                 </div>
 
             </S.HeaderTop>
