@@ -4,6 +4,8 @@ import Header from "@/componentes/Header";
 import StyledComponentsRegistry from "../registry";
 import Providers from "../providers";
 import GlobalStyles from "@/style/global";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,6 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      <ToastContainer
+          position="top-center"
+          theme="colored"
+          autoClose={8000}
+          hideProgressBar
+        />
         <StyledComponentsRegistry>
           <Providers>
           <GlobalStyles />
