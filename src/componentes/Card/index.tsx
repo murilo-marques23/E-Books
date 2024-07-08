@@ -2,12 +2,17 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react"
 import { FaRegStar } from "react-icons/fa";
 import { iProduto } from "@/types/context";
+import { useCart } from "@/contexts/CartContext";
+import { useState } from "react";
 
 interface CardProps {
     products: iProduto[];
 }
 
 const Card: React.FC<CardProps> = ({ products }) => {
+    const { addProduct } = useCart();
+    const [amount, setAmount] = useState(1);
+
     return (
         <>
             {products.map((Product: iProduto) => (
@@ -34,7 +39,7 @@ const Card: React.FC<CardProps> = ({ products }) => {
                                 w="200px"
                                 h="200px"
                                 src={Product.img}
-                                alt="Livros"
+                                alt="Produto"
                                 marginTop="8px"
                             />
                         </Box>
@@ -67,7 +72,11 @@ const Card: React.FC<CardProps> = ({ products }) => {
                         </Box>
 
                         <Box display="flex" alignItems="center" justifyContent="center">
-                            <Button variant='link' color="black">
+                            <Button 
+                                variant='link'
+                                color="black"
+                                onClick={() => addProduct({ ...Product, amount })}
+                            >
                                 Adicionar ao Carrinho
                             </Button>
                         </Box>

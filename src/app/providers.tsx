@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import theme from "@/style/theme";
 import AuthProvider from "@/contexts/AuthContext";
 import { QueryClient, QueryClientProvider } from "react-query";
+import CardProvider from "@/contexts/CartContext";
 
 
 export const cache = createCache({ key: "css", prepend: true });
@@ -31,7 +32,9 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
         <ThemeProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
           <AuthProvider>
+          <CardProvider>
           {children}
+          </CardProvider>
           </AuthProvider>
           </QueryClientProvider>
         </ThemeProvider>
