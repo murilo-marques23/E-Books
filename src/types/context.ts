@@ -20,3 +20,14 @@ export interface iProduto {
     preço: number,
     score: number,
 }
+
+export interface iProductCartProps extends iProduto {
+    amount: number
+}
+
+export interface ICartContext {
+    addProduct:(product: iProductCartProps) => void
+    cart: iProductCartProps[]
+    removeProduct:(id: number) => void
+    totalCart: number
+}
