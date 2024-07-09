@@ -17,7 +17,7 @@ export interface iProduto {
     nome: string,
     img: string,
     autor: string,
-    preço: number,
+    preco: number,
     score: number,
 }
 

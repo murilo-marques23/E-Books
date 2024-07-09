@@ -123,30 +123,3 @@ export default function Register () {
     )
 
 }
-{/* <Box>
-        <Button type="submit"
-        variant='link'
-        w="200px"
-        h="50px"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        color="black"
-        fontWeight="600"
-        borderRadius="8px"
-        >Confirme o seu cadastro</Button>
-
-        </Box>
-        
-          
-        <small 
-        style={{
-            display: "flex",
-            flexDirection: "column",
-            gap:"5px",
-            fontWeight: "700"
-        }}>Ja Possui um Login? 
-            <Link color="purple" href="/login">Acesse Ja!</Link>
-
-        </small>
-        </Box> */}

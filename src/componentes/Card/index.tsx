@@ -58,7 +58,7 @@ const Card: React.FC<CardProps> = ({ products }) => {
 
                         <Box display="flex" marginLeft="30px">
                             <Text>
-                                R$: {Product.preço.toFixed(2).replace(".", ",")}
+                                R$: {Product.preco.toFixed(2).replace(".", ",")}
                             </Text>
                         </Box>
 

@@ -6,6 +6,7 @@ import Providers from "../providers";
 import GlobalStyles from "@/style/global";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "@/componentes/Footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -34,6 +35,7 @@ export default function RootLayout({
           <GlobalStyles />
           <Header />
           {children}
+          <Footer />
           </Providers>
         </StyledComponentsRegistry>
         </body>

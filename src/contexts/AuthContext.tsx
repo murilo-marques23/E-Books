@@ -30,9 +30,9 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
         const response = await login(values)
         console.log(response) 
         setIsLogged(true)
-        localStorage.setItem("IsLogged", "true" )
-        api.defaults.headers["Authorization"] = `Bearer${response.acessToken}`
-        localStorage.setItem("@Token", response.acessToken)
+        localStorage.setItem("isLogged", "true" )
+        api.defaults.headers["Authorization"] = `Bearer${response.accessToken}`
+        localStorage.setItem("@Token", response.accessToken)
         setUser(response.user)
         localStorage.setItem("user", JSON.stringify(response.user))
         toast.success( "Login Concluido Com Sucesso " )
