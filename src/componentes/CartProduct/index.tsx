@@ -15,7 +15,7 @@ const CartProduct: React.FC<iProductCartProps> = ({
   img,
   amount,
   nome,
-  preço,
+  preco,
   id,
 }) => {
   const { removeProduct } = useCart();
@@ -31,7 +31,7 @@ const CartProduct: React.FC<iProductCartProps> = ({
       <Stack>
         <CardBody>
           <Text fontWeight="bold">{nome}</Text>
-          <Text>Valor: R$ {preço}</Text>
+          <Text>Valor: R$ {preco}</Text>
           <Text>Quantidade: {amount}</Text>
         </CardBody>
       </Stack>

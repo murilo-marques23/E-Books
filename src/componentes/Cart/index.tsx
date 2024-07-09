@@ -58,6 +58,7 @@ const Cart: React.FC<iCartProps> = ({
             <DrawerFooter flexDir="column">
           <Flex w="100%" justify="space-between">
             <Text>Total:</Text>
+            <Text> {totalCart} </Text>
           </Flex>
           <Button
             bgColor="green"
