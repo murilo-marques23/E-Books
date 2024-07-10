@@ -16,6 +16,7 @@ import {
   } from '@chakra-ui/react'
 import CartProduct from '../CartProduct';
 import { useCart } from '@/contexts/CartContext';
+import { useRouter } from 'next/navigation';
 
 export interface iCartProps {
     isOpen: boolean,
@@ -27,7 +28,11 @@ const Cart: React.FC<iCartProps> = ({
     onClose
 }) => {
     const { cart, totalCart } = useCart();
-  
+    const router = useRouter();
+    const handleCheckout = () => {
+    onClose();
+    router.push('/checkout');
+  };
     return (
       <>
         <Drawer
@@ -66,6 +71,7 @@ const Cart: React.FC<iCartProps> = ({
             w="100%"
             mt="2rem"
             _hover={{ bgColor: "green.400" }}
+            onClick={handleCheckout}
           >
             Finalizar compra
           </Button>

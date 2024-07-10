@@ -30,4 +30,5 @@ export interface ICartContext {
     cart: iProductCartProps[]
     removeProduct:(id: number) => void
     totalCart: number
+    clearCart: () => void
 }

@@ -21,6 +21,18 @@ export const HeaderTop = styled.section`
         display: flex;
         gap: 15px;
     }
+
+    section{
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+    
+        Button span {
+            font-weight: 700
+        }
+    }
+
 `
 
 export const HeaderCenter = styled.section`
@@ -31,7 +43,7 @@ export const HeaderCenter = styled.section`
     flex-direction: row;
     
     span{
-    font-weight: 500;
+    font-weight: 700;
     display: flex;
     justify-content: center;
     align-items: center;
