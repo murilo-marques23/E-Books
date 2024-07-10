@@ -12,12 +12,13 @@ import { iProductResponseProps } from "@/types/cadastroproduct";
 import { useQuery, useQueryClient } from "react-query";
 import { getProducts } from "@/service/product.service";
 import { createStore } from "@/service/cadastroloja.service";
-
+import { useRouter } from "next/navigation";
 
 
 const initialStoreItens: iProductResponseProps = { nome: "", img: "" , autor: "", preco: 0, score: 0 } 
 
 const Header = () => {
+    const route = useRouter();
     const toast = useToast();
     const { isLogged, user, logout } = useAuth();
     console.log(isLogged);
@@ -73,16 +74,32 @@ const Header = () => {
               </>
             ) : (
               <>
+                <section>
                 <p>Olá, {user.name}</p>
+                <Button
+                size="sm"
+                variant="ghost"
+                bg="transparent"
+                onClick={ logout }
+                >
+                   <span>Sair</span> 
+                </Button>
+                </section>
+                
               </>
             )}
                 </div>
                 
             </S.HeaderTop>
                 <S.HeaderCenter>
+                  <Button
+                  bg="transparent"
+                  onClick={() => route.push("/")}
+                  >
                     <span><PiBooksBold 
-                    size={50}
+                    size={60}
                     /> E-books</span>
+                  </Button>
                     
                     <S.Nav> 
                     <Button
@@ -94,6 +111,7 @@ const Header = () => {
                     </Button>
 
                     <Button onClick={onProductOpen}
+                    bg= "transparent"
                     >
                     <BiArchiveIn />
                     Cadastro De Produtos

@@ -48,6 +48,10 @@ const CardProvider = ({ children }: { children: React.ReactNode }) => {
   });
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   //   fazer const do total do carrinho usando usememo
 
   const totalCart = useMemo(() => {
@@ -56,7 +60,7 @@ const CardProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <CardContext.Provider
-      value={{ totalCart, cart, addProduct, removeProduct }}
+      value={{ totalCart, cart, addProduct, removeProduct, clearCart }}
     >
       {children}
     </CardContext.Provider>
