@@ -1,23 +1,59 @@
+"use client"
+import ReactPaginate from "react-paginate";
+import { Box, Flex } from "@chakra-ui/react";
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { getProducts } from "@/service/product.service";
 import Banner from "@/componentes/Banner";
 import Card from "@/componentes/Card";
-import Categorias from "@/componentes/Categorias";
-import { Flex } from "@chakra-ui/react";
 
+import "./paginate.css";
 
 export default function Home() {
+  const { data: Product } = useQuery("Product", getProducts);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  if (!Product) {
+    return null;
+  }
+
+  const itemsPerPage = 8;
+  const offset = currentPage * itemsPerPage;
+  const currentPageData = Product.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(Product.length / itemsPerPage);
+
+  const handlePageClick = ({ selected }: { selected: number }) => {
+    setCurrentPage(selected);
+  };
+
   return (
-      <Flex as = "main" flexDirection="column">
-        <Banner src = "/Banner-teste-3.png" />
-
-          <Flex 
-          flexDir= {{ base: "column", md: "row"}}>
-        <Card id={0} nome={"Box Jurrasic Park"} img={"/Box-Jurrasic-Park.png"} preco={150} nota={4}
-        />
-        <Card id={1} nome={"Neuromancer"} img={"/Neuromancer.png"} preco={50} nota={5} 
-        />
-        <Card id={0} nome={"Jogador Numero 1"} img={"/Jogador-Numero 1.png"} preco={100} nota={4.5} />
-
-          </Flex>
+    <>
+      <Flex>
+        <Banner src="/Banner-teste-3.png" />
       </Flex>
+
+      <Flex as="main">
+        <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+          <Card products={currentPageData} />
+        </Flex>
+      </Flex>
+
+      <Box mt="3rem" mb="3rem" display="flex" justifyContent="center">
+        <ReactPaginate
+          previousLabel={"Anterior"}
+          nextLabel={"Próximo"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          activeClassName={"active"}
+          previousClassName={"prev"}
+          nextClassName={"next"}
+        />
+      </Box>
+    </>
   );
 }
