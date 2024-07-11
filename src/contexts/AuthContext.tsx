@@ -4,8 +4,7 @@
 import { createContext, useEffect, useState, ReactNode, useContext } from "react";
 import { iAuthContext, iProduto } from "@/types/context";
 import { useRouter } from "next/navigation";
-import { iSingin, iSinginData, iSingUpData, iUser } from "@/types/userAccessValidatons";
-import { resolve } from "path";
+import { iSinginData, iSingUpData, iUser } from "@/types/userAccessValidatons";
 import { login } from "@/service/login.service";
 import { api } from "@/service/api";
 import { register } from "@/service/register.service";

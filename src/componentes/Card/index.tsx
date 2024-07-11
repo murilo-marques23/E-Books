@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ products }) => {
                     key={Product.id}
                     boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
                     h="450px"
-                    w="380px"
+                    w={{ base: "100%", md: "380px"}}
                     mt="3rem"
                     borderRadius="8px"
                     ml="1rem"
