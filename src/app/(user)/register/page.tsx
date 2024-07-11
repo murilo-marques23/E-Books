@@ -26,7 +26,7 @@ export default function Register () {
         <>
             
 
-            <Box display="flex" justifyContent="center" alignItems="center" flexDir="column">
+            <Box display="flex" justifyContent="center" alignItems="center" flexDir="column" padding= "0 5%">
             <Box fontSize="40" fontWeight="400">
                 <Text
                     color="white"
@@ -38,7 +38,8 @@ export default function Register () {
                     Seja Bem Vindo, Faça Seu Cadastro!
                 </Text>
             </Box>
-                <Box
+                <Box 
+                    
                     as="form" 
                     onSubmit={handleSubmit(handlesingUp)}                 
                     bg="gray.50"
@@ -47,7 +48,7 @@ export default function Register () {
                     justifyContent="center"
                     alignItems="center"
                     gap="20px"
-                    w="600px"
+                    w={{ base: "100%", lg: "600px"}}
                     h="600px"
                     borderRadius="10px"
                     mt="30px"

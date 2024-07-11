@@ -48,23 +48,12 @@ export const HeaderCenter = styled.section`
     justify-content: center;
     align-items: center;
     }
-    
+
     `
     
-
     export const Nav = styled.nav`
     display: flex;
     gap: 10px;
     align-items: center;
-    div{
-    display: flex;
-     justify-content: center;
-     align-items: center;
-    }
-    
-    Button{
-    display: flex;
-    gap: 5px;
-    }
     `
     

@@ -21,19 +21,20 @@ export default function Login() {
 
     return (
         <>
-            <Box fontSize="40" fontWeight="400">
+            <Box fontSize={{ base: "26px", md: "40px"}} fontWeight="400" padding="0 5%">
                 <Text
                     color="white"
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
                     mt="18px"
+                    
                 >
                     Seja Bem Vindo Novamente!
                 </Text>
             </Box>
 
-            <Box display="flex" justifyContent="center" alignItems="center">
+            <Box display="flex" justifyContent="center" alignItems="center" padding="0 5%">
                 <Box
                     as="form"
                     onSubmit={handleSubmit(handlesingIn)}

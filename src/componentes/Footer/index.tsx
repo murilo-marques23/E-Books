@@ -17,7 +17,7 @@ const Footer = () => {
             <h1>E-Books</h1>
         </S.Logo>
 
-        <S.footerCenter>
+        <S.FooterCenter>
         <S.Redes>
             <span>Nossas Redes</span>
 
@@ -73,11 +73,11 @@ const Footer = () => {
             </div>
 
         </S.Contato>
-        </S.footerCenter>
+        </S.FooterCenter>
         
-        <S.footerButom>
+        <S.FooterBottom>
             <p> Copyright©2024 - Desenvolvido Por Murilo Mendes</p>
-        </S.footerButom>
+        </S.FooterBottom>
 
     </S.Footer>
 

@@ -1,97 +1,147 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-export const Footer = styled.footer `
-    background-color: ${({ theme }) => theme.colors.brand.secondary};
-    whidth: auto;
-    height: 300px;
-    
+export const Footer = styled.footer`
+background-color: ${({ theme }) => theme.colors.brand.secondary};
+width: 100%;
 
-`
 
-export const footerCenter = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center; 
-    margin-top: 25px;
-    gap: 300px;  
-`
+padding: 20px; /* Adicionando padding para espaçamento interno */
+    @media (max-width: 768px) {
 
-export const Logo = styled.section `
+    height: 100%;   
+    /* Ajuste para o componente Logo */
+    Logo {
+        h1 {
+            font-size: 24px; /* Reduzindo ainda mais o tamanho da fonte */
+        }
+    }
+
+    /* Ajuste para os componentes Redes, LinkUteis e Contato */
+    Redes, LinkUteis, Contato {
+        span {
+            font-size: 16px; /* Reduzindo o tamanho da fonte */
+        }
+    }
+}
+`;
+
+export const Logo = styled.section`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 
-    h1{
-    font-size: 50px;
-    font-weight: 500;
+    h1 {
+        font-size: 36px; /* Reduzindo o tamanho da fonte para telas menores */
+        font-weight: 500;
     }
-`
+`;
 
-export const Redes = styled.nav `
+export const FooterCenter = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+    
+
+    @media(max-width: 545px){
+        flex-direction: column;
+    }
+`;
+
+
+export const Redes = styled.nav`
     display: flex;
     flex-direction: column;
+    height: 100px;
     
-    height: 50px;
+    
+    @media (max-width: 768px) {
+        align-items: center;
+        justify-content: center;
+    }
 
-    span{
-    color: ${({ theme }) => theme.colors.white.white};
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: 18px;
+    span {
+        color: ${({ theme }) => theme.colors.white.white};
+        font-size: 18px; /* Reduzindo o tamanho da fonte para telas menores */
+        font-weight: 600;
+        margin-left: 0; /* Redefinindo margem para telas menores */
+        margin-bottom: 10px; /* Adicionando margem inferior para espaçamento */
     }
-    
-    Button{
-    display: flex;
-    gap: 10px;
+
+    Button {
+        display: flex;
+        gap: 5px;
+        font-size: 16px; /* Reduzindo o tamanho da fonte para telas menores */
     }
-`
+`;
 
 export const LinkUteis = styled.nav`
     display: flex;
     flex-direction: column;
-    height: 50px;
+    height: 100px;
 
-    span{
-    color: ${({ theme }) => theme.colors.white.white};
-    font-size: 20px;
-    font-weight: 600;
+    @media (max-width: 768px) {
+        align-items: center;
+        justify-content: center;
+    }
+    
+
+    span {
+        color: ${({ theme }) => theme.colors.white.white};
+        font-size: 18px; /* Reduzindo o tamanho da fonte para telas menores */
+        font-weight: 600;
     }
 
-    ul{ 
-    display: flex;
-    flex-direction: column;
+    ul {
+        display: flex;
+        flex-direction: column;
     }
-`
+`;
 
 export const Contato = styled.nav`
     display: flex;
     flex-direction: column;
+    height: 100px;
+
+    @media (max-width: 768px) {
+        align-items: center;
+        justify-content: center;
+    }
     
-    height: 50px;
 
-    span{
-    color: ${({ theme }) => theme.colors.white.white};
-    font-size: 20px;
-    font-weight: 600;
+    span {
+        color: ${({ theme }) => theme.colors.white.white};
+        font-size: 18px; /* Reduzindo o tamanho da fonte para telas menores */
+        font-weight: 600;
     }
 
-    div{
-    display: flex;
-    gap: 10px;
+    div {
+        display: flex;
+        gap: 5px;
     }
-`
+    
 
-export const footerButom = styled.section`
+`;
+
+export const FooterBottom = styled.section`
     background-color: ${({ theme }) => theme.colors.black.black};
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 150px;
+    height: 100px; /* Ajuste a altura conforme necessário */
+    margin-top: 50px;
 
-    p{
-        color: ${({ theme }) => theme.colors.white.white}
+    p {
+        color: ${({ theme }) => theme.colors.white.white};
+        font-size: 14px; /* Reduzindo o tamanho da fonte para telas menores */
     }
     
-`
+    @media (max-width: 768px) {
+    widht: 100%;
+    height: 100%;
+    }
+`;
+

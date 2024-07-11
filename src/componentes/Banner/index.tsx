@@ -15,9 +15,10 @@ const Banner: React.FC<iBannerProps> = ({ src }) => {
         >
         <Heading
         color="white"
-        fontSize= "55px"
+        fontSize= {{ base: "45px", md: "55px" }}
         textAlign="center"
-        paddingTop="70px"
+        paddingTop={{ base: "25px", md: "70px"}}
+        
         >
             Encontre Os Seus Livros Favoritos Aqui 
         </Heading>
