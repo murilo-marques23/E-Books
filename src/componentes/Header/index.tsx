@@ -27,9 +27,9 @@ const Header = () => {
   const [ newStore, setNewStore ] = useState<iProductResponseProps>(initialStoreItens);
   
   const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setNewStore(prevState => ({
-      ...prevState, [name]: name === "preco" || name === "score" ? parseFloat(value) : value
+    const { name, value, files } = e.target;
+    setNewStore ((prevState) => ({
+      ...prevState, [name]: name === "preco" || name === "score" ? parseFloat(value) : name === "img" ? files?.[0] : value,
     }));
   }, []);
 
@@ -120,7 +120,6 @@ const Header = () => {
               <FormControl mt={4}>
                 <FormLabel>Preço</FormLabel>
                 <Input
-                  value={newStore.preco}
                   onChange={handleInputChange}
                   name="preco"
                   type="number"
@@ -129,15 +128,14 @@ const Header = () => {
               <FormControl mt={4}>
                 <FormLabel>Imagem</FormLabel>
                 <Input
-                  value={newStore.img}
                   onChange={handleInputChange}
                   name="img"
+                  type="file"
                 />
               </FormControl>
               <FormControl mt={4}>
                 <FormLabel>Autor</FormLabel>
                 <Input
-                  value={newStore.autor}
                   onChange={handleInputChange}
                   name="autor"
                 />

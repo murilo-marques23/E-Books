@@ -13,9 +13,7 @@ const Card: React.FC<CardProps> = ({ products }) => {
     const { addProduct } = useCart();
     const [amount, setAmount] = useState(1);
 
-    return (
-        <>
-            {products.map((Product: iProduto) => (
+    return products.map((Product: iProduto) => (
                 <Box
                     key={Product.id}
                     boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
@@ -38,7 +36,7 @@ const Card: React.FC<CardProps> = ({ products }) => {
                             <Image
                                 w="200px"
                                 h="200px"
-                                src={Product.img}
+                                src={`/api/${Product.img}`}
                                 alt="Produto"
                                 marginTop="8px"
                             />
@@ -58,7 +56,7 @@ const Card: React.FC<CardProps> = ({ products }) => {
 
                         <Box display="flex" marginLeft="30px">
                             <Text>
-                                R$: {Product.preco.toFixed(2).replace(".", ",")}
+                                 {(Product.preco/100).toLocaleString("PT-BR",{style:"currency","currency":"BRL"})}
                             </Text>
                         </Box>
 
@@ -82,9 +80,8 @@ const Card: React.FC<CardProps> = ({ products }) => {
                         </Box>
                     </Flex>
                 </Box>
-            ))}
-        </>
-    );
+            ))
+        
 }
 
 export default Card;

@@ -22,7 +22,7 @@ const CartProduct: React.FC<iProductCartProps> = ({
   return (
     <Card direction="row" justify="space-between" align="center" p="0 1rem">
       <Image
-        src={img}
+        src={`/api/${img}`}
         alt={nome}
         width="50px"
         height="50px"
@@ -31,7 +31,7 @@ const CartProduct: React.FC<iProductCartProps> = ({
       <Stack>
         <CardBody>
           <Text fontWeight="bold">{nome}</Text>
-          <Text>Valor: R$ {preco}</Text>
+          <Text>Valor: {(preco/100).toLocaleString("PT-BR", {style: "currency", "currency":"BRL"})}</Text>
           <Text>Quantidade: {amount}</Text>
         </CardBody>
       </Stack>

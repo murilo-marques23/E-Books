@@ -1,12 +1,11 @@
 "use client"
 import ReactPaginate from "react-paginate";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Spinner } from "@chakra-ui/react";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { getProducts } from "@/service/product.service";
 import Banner from "@/componentes/Banner";
 import Card from "@/componentes/Card";
-
 import "./paginate.css";
 
 export default function Home() {
@@ -21,7 +20,6 @@ export default function Home() {
   const offset = currentPage * itemsPerPage;
   const currentPageData = Product.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(Product.length / itemsPerPage);
-
   const handlePageClick = ({ selected }: { selected: number }) => {
     setCurrentPage(selected);
   };

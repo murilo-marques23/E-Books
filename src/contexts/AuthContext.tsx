@@ -30,7 +30,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
         console.log(response) 
         setIsLogged(true)
         localStorage.setItem("isLogged", "true" )
-        api.defaults.headers["Authorization"] = `Bearer${response.accessToken}`
+        api.defaults.headers["Authorization"] = `Bearer ${response.accessToken}`
         localStorage.setItem("@Token", response.accessToken)
         setUser(response.user)
         localStorage.setItem("user", JSON.stringify(response.user))

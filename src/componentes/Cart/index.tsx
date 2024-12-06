@@ -12,10 +12,15 @@ import {
     Text,
     Stack,
     Heading,
+    useToast,
   } from '@chakra-ui/react'
 import CartProduct from '../CartProduct';
 import { useCart } from '@/contexts/CartContext';
 import { useRouter } from 'next/navigation';
+import { checkout, orders } from '@/service/checkout.service';
+
+import { useState } from 'react';
+
 
 export interface iCartProps {
     isOpen: boolean,
@@ -26,12 +31,49 @@ const Cart: React.FC<iCartProps> = ({
     isOpen, 
     onClose
 }) => {
-    const { cart, totalCart } = useCart();
+    const { cart, totalCart, clearCart } = useCart();
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const toast = useToast();
     const handleCheckout = () => {
     onClose();
-    router.push('/checkout');
+    handleSubmit();
+
+
   };
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    
+    try {
+        const orderId = await orders(cart);
+        const url = await checkout(orderId);
+        clearCart();
+        setIsSuccess(true);
+        
+
+        toast({
+            title: "Compra realizada com sucesso!",
+            description: "Obrigado por comprar conosco",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+        });
+        window.open(url, "_blank");
+    }catch (e:any){
+        toast({
+            title: "Oops Algo deu errado!",
+            description: `Mensagem do erro ${e.message}`,
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+        });
+        console.error(e);
+    }finally{
+        setIsLoading(false);
+    }
+};
     return (
       <>
         <Drawer
@@ -62,7 +104,7 @@ const Cart: React.FC<iCartProps> = ({
             <DrawerFooter flexDir="column">
           <Flex w="100%" justify="space-between">
             <Text>Total:</Text>
-            <Text> {totalCart} </Text>
+            <Text> {(totalCart/100).toLocaleString("PT-BR", {style: "currency", "currency":"BRL"})} </Text>
           </Flex>
           <Button
             bgColor="green"

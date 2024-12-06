@@ -3,13 +3,13 @@ export interface iSingin {
     senha: string;
 };
 
-export interface iSingUp {
+export interface iSingUp  {
     nome: string;
     email: string;
     senha: string;
     confirmacaosenha: string;
-
-
+    
+    
 }
 
 export interface iUser{
@@ -17,10 +17,12 @@ export interface iUser{
     email: string;
 }
 
+
 export interface iSinginData {
     email: string;
     password: string;
 }
+
 
 export interface iSingUpData {
     name: string;
